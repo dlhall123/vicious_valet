@@ -31,24 +31,29 @@
 			<button type="submit">Add New Car</button>
 		</div>
 	</form>
-	<p>The lot is full: {{lot.isFull}}.  {{lot.getCarAmount}} out of {{lot.getCapacity}} spots filled.</p>
+	<p>The lot is full: {{ lot.isFull }}. {{ lot.carList.size }} out of
+		{{ lot.getCapacity }} spots filled.</p>
 	<table border="1">
-		<tr>
-			<th>License Plate</th>
-			<th>Vehicle State</th>
-			<th>Vehicle Color</th>
-			<th>Vehicle Make</th>
-			<th>Vehicle Model</th>
-		</tr>
-		{{#lot.carList}}
-		<tr>
-			<td>{{ license }}</td>
-			<td>{{ state }}</td>
-			<td>{{ color }}</td>
-			<td>{{ make }}</td>
-			<td>{{ model }}</td>
-		</tr>
-		{{/lot.carList}}
+		<thead>
+			<tr>
+				<th>License Plate</th>
+				<th>Vehicle State</th>
+				<th>Vehicle Color</th>
+				<th>Vehicle Make</th>
+				<th>Vehicle Model</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#lot.carList}}
+			<tr>
+				<td>{{ license }}</td>
+				<td>{{ state }}</td>
+				<td>{{ color }}</td>
+				<td>{{ make }}</td>
+				<td>{{ model }}</td>
+			</tr>
+			{{/lot.carList}}
+		</tbody>
 	</table>
 </body>
 </html>

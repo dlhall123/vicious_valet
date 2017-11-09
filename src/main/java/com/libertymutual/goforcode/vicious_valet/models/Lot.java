@@ -32,9 +32,6 @@ public class Lot {
 			return false;
 		}
 	}
-	public int getCarAmount() {
-		return carList.size();
-	}
  
 	public int getCapacity() {
 		return capacity;
