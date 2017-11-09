@@ -41,6 +41,7 @@
 				<th>Vehicle Color</th>
 				<th>Vehicle Make</th>
 				<th>Vehicle Model</th>
+				<th>Remove</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -51,6 +52,12 @@
 				<td>{{ color }}</td>
 				<td>{{ make }}</td>
 				<td>{{ model }}</td>
+				<td>
+					<form method="post" action="remove">
+						<input type="hidden" name="carIndex" value="{{ -index }}">
+						<button>Remove from lot</button>
+					</form>
+				</td>
 			</tr>
 			{{/lot.carList}}
 		</tbody>

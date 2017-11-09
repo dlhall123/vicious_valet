@@ -15,6 +15,16 @@ public class AppController {
 		carLot = new Lot(5);
 	}
 	
+	
+	@RequestMapping("/remove")
+	public ModelAndView removeCar(int carIndex) {
+		carLot.removeCar(carIndex);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("app");
+		mv.addObject("lot", carLot);
+		return mv;
+	}
+	
 	@RequestMapping("/")
 	public ModelAndView defaultPage(String license, String state, String color, String make, String model) {
 		//if license is not null, and the length of license is greater than 0

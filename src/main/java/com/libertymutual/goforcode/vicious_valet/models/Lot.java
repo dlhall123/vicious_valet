@@ -37,4 +37,8 @@ public class Lot {
 		return capacity;
 	}
 	
+	public void removeCar(int i) {
+		carList.remove(i-1);
+	}
+	
 }
