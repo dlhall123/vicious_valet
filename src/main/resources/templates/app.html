@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<title>Vicious Valet</title>
+</head>
+<body>
+	<h1>Vicious Valet!!</h1>
+	<form action="/" method="post">
+		<div align="left">
+			<div>
+				<label>License Plate: <Input type="text" name="license">
+				</label>
+			</div>
+			<div>
+				<label>Vehicle State: <Input type="text" name="state">
+				</label>
+			</div>
+			<div>
+				<label>Vehicle Color: <Input type="text" name="color">
+				</label>
+			</div>
+			<div>
+				<label>Vehicle Make: <Input type="text" name="make">
+				</label>
+			</div>
+			<div>
+				<label>Vehicle Model: <Input type="text" name="model">
+				</label>
+			</div>
+			<button type="submit">Add New Car</button>
+		</div>
+	</form>
+	<p>The lot is full: {{lot.isFull}}.  {{lot.getCarAmount}} out of {{lot.getCapacity}} spots filled.</p>
+	<table border="1">
+		<tr>
+			<th>License Plate</th>
+			<th>Vehicle State</th>
+			<th>Vehicle Color</th>
+			<th>Vehicle Make</th>
+			<th>Vehicle Model</th>
+		</tr>
+		{{#lot.carList}}
+		<tr>
+			<td>{{ license }}</td>
+			<td>{{ state }}</td>
+			<td>{{ color }}</td>
+			<td>{{ make }}</td>
+			<td>{{ model }}</td>
+		</tr>
+		{{/lot.carList}}
+	</table>
+</body>
+</html>
