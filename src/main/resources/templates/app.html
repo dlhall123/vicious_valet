@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf8">
 <title>Vicious Valet</title>
+<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
+<div id="header">
 	<h1>Vicious Valet!!</h1>
+	</div>
+	<div id="top-image"></div>
 	<form action="/" method="post">
-		<div align="left">
+		<div id="entry">
 			<div>
 				<label>License Plate: <Input type="text" name="license">
 				</label>
@@ -31,9 +35,10 @@
 			<button type="submit">Add New Car</button>
 		</div>
 	</form>
-	<p>The lot is full: {{ lot.isFull }}. {{ lot.carList.size }} out of
+	<p>The lot is full: <span id="full">{{ lot.isFull }}</span>. {{ lot.carList.size }} out of
 		{{ lot.getCapacity }} spots filled.</p>
-	<table border="1">
+	<div id="table">
+	<table>
 		<thead>
 			<tr>
 				<th>License Plate</th>
@@ -62,5 +67,6 @@
 			{{/lot.carList}}
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

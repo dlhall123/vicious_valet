@@ -1,0 +1,56 @@
+@charset "UTF-8";
+* {
+	background-color: #4cffa5;
+}
+body {
+	text-align: center;
+	font-family: Helvetica;
+}
+#header {
+	width: 100%;
+	color: blue;
+}
+#top-image {
+	width: 100%;
+	height: 350px;
+	background-image: url('/images/vv.jpg');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 5px, 0, 10px, 0;
+}
+#full {
+	font-weight: bold;
+}
+label {
+	font-weight: bold;
+}
+#entry {
+	margin: 5px;
+}
+#entry button {
+	background-color: #3d38ff;
+	color: magenta;
+}
+
+button:hover {
+	font-weight: bold;
+	font-style: italic;
+}
+
+#table button {
+	background-color: red;
+}
+tr th {
+	background-color: #5df6ff;
+}
+tr, td, th {
+	border: 2px solid black;
+	background-color: white;
+}
+table {
+	margin: auto;
+	width: 100%;
+	border: 2px solid black;
+	padding: 5px;
+}
