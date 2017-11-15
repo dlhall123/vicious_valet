@@ -47,6 +47,7 @@ body {
 #entry button {
 	background-color: #3d38ff;
 	color: magenta;
+	width: 95px;
 }
 
 #entry button:hover {
@@ -60,6 +61,7 @@ button:hover {
 
 #table button {
 	background-color: red;
+	width: 110px;
 }
 tr th {
 	background-color: #5df6ff;
