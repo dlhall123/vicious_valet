@@ -1,6 +1,6 @@
 @charset "UTF-8";
 * {
-	background-color: #4cffa5;
+	background-color: #F4DECB;
 }
 body {
 	text-align: center;
@@ -45,13 +45,13 @@ body {
 }
 
 #entry button {
-	background-color: #3d38ff;
+	background-color: #0b3c5d;
 	color: magenta;
 	width: 95px;
 }
 
 #entry button:hover {
-	background-color: black;
+	background-color: #F19F4D;
 }
 
 button:hover {
@@ -60,7 +60,7 @@ button:hover {
 }
 
 #table button {
-	background-color: red;
+	background-color: #D9D9D9;
 	width: 110px;
 }
 tr th {
