@@ -13,26 +13,26 @@
 	<form action="/" method="post">
 		<div id="entry">
 			<div>
-				<label>License Plate: <Input type="text" name="license">
+				<label>License Plate: <Input type="text" name="license" class="rounded">
 				</label>
 			</div>
 			<div>
-				<label>Vehicle State: <Input type="text" name="state">
+				<label>Vehicle State: <Input type="text" name="state" class="rounded">
 				</label>
 			</div>
 			<div>
-				<label>Vehicle Color: <Input type="text" name="color">
+				<label>Vehicle Color: <Input type="text" name="color" class="rounded">
 				</label>
 			</div>
 			<div>
-				<label>Vehicle Make: <Input type="text" name="make">
+				<label>Vehicle Make: <Input type="text" name="make" class="rounded">
 				</label>
 			</div>
 			<div>
-				<label>Vehicle Model: <Input type="text" name="model">
+				<label>Vehicle Model: <Input type="text" name="model" class="rounded">
 				</label>
 			</div>
-			<button type="submit">Add New Car</button>
+			<button type="submit" class="rounded">Add New Car</button>
 		</div>
 	</form>
 	<p>The lot is full: <span id="full">{{ lot.isFull }}</span>. {{ lot.carList.size }} out of
@@ -51,7 +51,7 @@
 		</thead>
 		<tbody>
 			{{#lot.carList}}
-			<tr>
+			<tr class="alternate">
 				<td>{{ license }}</td>
 				<td>{{ state }}</td>
 				<td>{{ color }}</td>
