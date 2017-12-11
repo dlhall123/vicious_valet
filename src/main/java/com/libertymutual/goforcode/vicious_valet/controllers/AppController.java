@@ -1,5 +1,7 @@
 package com.libertymutual.goforcode.vicious_valet.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,8 +26,10 @@ public class AppController {
 
 	@RequestMapping("/")
 	public ModelAndView defaultPage() {
+		List<Car> cars = carRepo.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("app");
+		mv.addObject("carList", cars);
 		mv.addObject("lot", carLot);
 		return mv;
 	}
@@ -38,22 +42,20 @@ public class AppController {
 			Car car;
 			car = new Car(license, state, color, make, model);
 			car.setLot(carLot);
-			carLot.addCar(car);
 			carRepo.save(car);
 		}
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("app");
-		mv.addObject("lot", carLot);
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 
 	@RequestMapping("/remove")
-	public ModelAndView removeCar(int carIndex) {
-		carLot.removeCar(carIndex);
+	public ModelAndView removeCar(Long carIndex) {
+
+		carRepo.delete(carIndex);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("app");
-		mv.addObject("lot", carLot);
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 

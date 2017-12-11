@@ -27,6 +27,9 @@ public class Lot {
 
 	}
 
+	public Lot() {
+	}
+
 	public List<Car> getCarList() {
 		return carList;
 	}

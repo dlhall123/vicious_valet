@@ -51,7 +51,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{{#lot.carList}}
+			{{#carList}}
 			<tr class="alternate">
 				<td>{{ license }}</td>
 				<td>{{ state }}</td>
@@ -60,12 +60,12 @@
 				<td>{{ model }}</td>
 				<td>
 					<form method="post" action="remove">
-						<input type="hidden" name="carIndex" value="{{ -index }}">
+						<input type="hidden" name="carIndex" value="{{ id }}">
 						<button>Remove from lot</button>
 					</form>
 				</td>
 			</tr>
-			{{/lot.carList}}
+			{{/carList}}
 		</tbody>
 	</table>
 	</div>

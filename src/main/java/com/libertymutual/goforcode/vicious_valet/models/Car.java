@@ -29,6 +29,9 @@ public class Car {
 		this.model = model;
 	}
 
+	public Car() {
+	}
+
 	public String getLicense() {
 		return license;
 	}
