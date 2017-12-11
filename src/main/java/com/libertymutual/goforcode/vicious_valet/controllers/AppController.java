@@ -6,16 +6,48 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.libertymutual.goforcode.vicious_valet.models.Car;
 import com.libertymutual.goforcode.vicious_valet.models.Lot;
+import com.libertymutual.goforcode.vicious_valet.services.CarRepository;
+import com.libertymutual.goforcode.vicious_valet.services.LotRepository;
 
 @Controller
 public class AppController {
-	private Lot carLot;
-	  
-	public AppController() {
-		carLot = new Lot(5);
+	private CarRepository carRepo;
+	private LotRepository lotRepo;
+	Lot carLot;
+
+	public AppController(CarRepository c, LotRepository l) {
+		carRepo = c;
+		lotRepo = l;
+		carLot = new Lot(10);
+		lotRepo.save(carLot);
 	}
-	
-	
+
+	@RequestMapping("/")
+	public ModelAndView defaultPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("app");
+		mv.addObject("lot", carLot);
+		return mv;
+	}
+
+	@RequestMapping("/addCar")
+	public ModelAndView addCar(String license, String state, String color, String make, String model) {
+		// if license is not null, and the length of license is greater than 0
+		// create a new instance of the Car class from the values submitted
+		if (license != null && license.length() > 0) {
+			Car car;
+			car = new Car(license, state, color, make, model);
+			car.setLot(carLot);
+			carLot.addCar(car);
+			carRepo.save(car);
+		}
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("app");
+		mv.addObject("lot", carLot);
+		return mv;
+	}
+
 	@RequestMapping("/remove")
 	public ModelAndView removeCar(int carIndex) {
 		carLot.removeCar(carIndex);
@@ -24,25 +56,5 @@ public class AppController {
 		mv.addObject("lot", carLot);
 		return mv;
 	}
-	
-	@RequestMapping("/")
-	public ModelAndView defaultPage(String license, String state, String color, String make, String model) {
-		//if license is not null, and the length of license is greater than 0
-			//create a new instance of the Car  class from the values submitted
-		if(license != null && license.length() > 0) {
-			Car car;
-			car = new Car(license, state, color, make, model);
-			//Park the car in the Lot
-			//We need to add a method to the lot class and call that method
-			carLot.addCar(car);
-		}
-		
-		
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("app");
-		mv.addObject("lot", carLot);
-		return mv;
-	}
-	
 
 }
